@@ -87,6 +87,7 @@ class RecipeViewSet(viewsets.ModelViewSet):
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 @extend_schema_view(
     list=extend_schema(
         parameters=[
@@ -118,6 +119,7 @@ class BaseRecipeAttrViewSet(mixins.UpdateModelMixin,
         return queryset.filter(
             user=self.request.user
         ).order_by('-name').distinct()
+
 
 class TagViewSet(BaseRecipeAttrViewSet):
     """Manage tags in the database."""
